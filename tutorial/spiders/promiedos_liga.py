@@ -12,10 +12,10 @@ class LigaSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
-        page = response.url.split("/")[-2]
-        filename = f'{page}.html'
-        Path(filename).write_bytes(response.body)
-        self.log(f'Saved file {filename}')
+        # page = response.url.split("/")[-2]
+        # filename = f'{page}.html'
+        # Path(filename).write_bytes(response.body)
+        # self.log(f'Saved file {filename}')
 
         for equipo in response.css('div.eqs strong'):
             yield {
